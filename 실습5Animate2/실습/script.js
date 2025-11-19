@@ -19,3 +19,29 @@
 	7. 처음 페이지 방문 시에 아무것도 클릭이 안되어있는 상태입니다.
 	강제로 첫번째 파이프를 클릭하게 만드세요.
 */
+
+$('.face li').eq(0).animate({top:200}, 500);
+$('.face li').eq(2).delay(200).animate({top:200}, 500);
+$('.face li').eq(1).delay(400).animate({top:200}, 500);
+
+
+$('.tabs li').on('click', function(){
+	$(this).siblings().removeClass('active');
+	$(this).addClass('active');
+
+	let index = $(this).index();
+	console.log(index);
+
+	$('.contents li').eq(index).siblings().fadeOut();
+	$('.contents li').eq(index).fadeIn();
+
+	const targetHeight = $('.contents li').eq(index).height();
+	$('.contents').css('height', targetHeight);
+
+	$('.face li').eq(index).animate({top:0}, 500, function(){
+		$(this).animate({top:200}, 500);
+	});
+
+});
+
+$('.tabs li').eq(0).trigger('click');

@@ -72,7 +72,9 @@ body {
     폰트칼라를 d3ffdf로 넣어주세요.
 */
 .wrapper .tabs li.active {
-
+    background-image: url('pipe.png');
+    color:#d3ffdf;
+    text-shadow:0 4px 5px #000;
 }
 
 .wrapper .contents {
